@@ -12,7 +12,8 @@ const app = express();
 // Set up mongoose connection
 const mongoose = require('mongoose');
 
-const mongoDB = 'mongodb+srv://omarsalhe92:complicated@cluster0.wggui.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const mongoDB =
+  'mongodb://omarsaleh92:UlEdKHrrJlDVsL9C@cluster0-shard-00-00.wggui.mongodb.net:27017,cluster0-shard-00-01.wggui.mongodb.net:27017,cluster0-shard-00-02.wggui.mongodb.net:27017/local_library?ssl=true&replicaSet=atlas-igbpl6-shard-0&authSource=admin&retryWrites=true&w=majority';
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
