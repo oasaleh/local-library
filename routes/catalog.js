@@ -1,11 +1,12 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+
+const router = express.Router();
 
 // Require controller modules.
-var book_controller = require('../controllers/bookController');
-var author_controller = require('../controllers/authorController');
-var genre_controller = require('../controllers/genreController');
-var book_instance_controller = require('../controllers/bookinstanceController');
+const book_controller = require('../controllers/bookController');
+const author_controller = require('../controllers/authorController');
+const genre_controller = require('../controllers/genreController');
+const book_instance_controller = require('../controllers/bookinstanceController');
 
 /// BOOK ROUTES ///
 
@@ -67,7 +68,7 @@ router.get('/authors', author_controller.author_list);
 // GET request for creating a Genre. NOTE This must come before route that displays Genre (uses id).
 router.get('/genre/create', genre_controller.genre_create_get);
 
-//POST request for creating Genre.
+// POST request for creating Genre.
 router.post('/genre/create', genre_controller.genre_create_post);
 
 // GET request to delete Genre.
