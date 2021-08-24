@@ -13,7 +13,7 @@ exports.author_list = function (req, res, next) {
       }
       // Successful, so render
       res.render('author_list', {
-        title: 'Author List',
+        title: 'Authors',
         author_list: list_authors,
       });
     });
