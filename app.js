@@ -9,6 +9,9 @@ const usersRouter = require('./routes/users');
 // Import routes for "catalog" area of site
 const catalogRouter = require('./routes/catalog');
 
+const compression = require('compression');
+const helmet = require('helmet');
+
 const app = express();
 
 // Set up mongoose connection
@@ -23,12 +26,14 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
-
+app.use(helmet());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(compression()); // Compress all routes
 
 // routes
 app.use('/', indexRouter);
