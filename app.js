@@ -1,25 +1,24 @@
+/* eslint-disable no-console */
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
+const compression = require('compression');
+const helmet = require('helmet');
+const mongoose = require('mongoose');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 // Import routes for "catalog" area of site
 const catalogRouter = require('./routes/catalog');
 
-const compression = require('compression');
-const helmet = require('helmet');
-
 const app = express();
 
 // Set up mongoose connection
-const mongoose = require('mongoose');
 
-const dev_db_url =
-  'mongodb://omarsaleh92:UlEdKHrrJlDVsL9C@cluster0-shard-00-00.wggui.mongodb.net:27017,cluster0-shard-00-01.wggui.mongodb.net:27017,cluster0-shard-00-02.wggui.mongodb.net:27017/local_library?ssl=true&replicaSet=atlas-igbpl6-shard-0&authSource=admin&retryWrites=true&w=majority';
-const mongoDB = process.env.MongoDB_URI || dev_db_url;
+// const dev_db_url =
+const mongoDB = process.env.MongoDB_URI;
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
@@ -57,5 +56,24 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500);
   res.render('error');
 });
+
+// const appReducer = (flavorsArr = [], actionToDo) => {
+//   if (actionToDo.type === 'deleteFlavor') {
+//     return flavorsArr.filter(
+//       (iceCream) => iceCream.flavor !== actionToDo.flavor,
+//     );
+//   }
+//   return flavorsArr;
+// };
+// const iceCreams = [
+//   { flavor: 'Chocolate', count: 36 },
+//   { flavor: 'Vanilla', count: 210 },
+// ];
+// const action = { type: 'deleteFlavor', flavor: 'Chocolate' };
+// const result = appReducer(iceCreams, action);
+
+// console.log(appReducer(iceCreams, action).length); // 2
+// console.log(result.length); // 2
+// console.log(result); // [{ flavor: 'Vanilla', count: 210 }];
 
 module.exports = app;
