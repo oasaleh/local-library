@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 
 console.log(
-  'This script populates some test books, authors, genres and bookinstances to your database. Specified database as argument - e.g.: populatedb mongodb+srv://cooluser:coolpassword@cluster0.a9azn.mongodb.net/local_library?retryWrites=true',
+  'This script populates some test books, authors, genres and bookinstances to your database. Specified database as argument - e.g.: populatedb mongodb+srv://cooluser:coolpassword@cluster0.a9azn.mongodb.net/local_library?retryWrites=true'
 );
 
 // Get arguments passed on command line
@@ -133,7 +133,7 @@ function createGenreAuthors(cb) {
       },
     ],
     // optional callback
-    cb,
+    cb
   );
 }
 
@@ -147,7 +147,7 @@ function createBooks(cb) {
           '9781473211896',
           authors[0],
           [genres[0]],
-          callback,
+          callback
         );
       },
       function (callback) {
@@ -157,7 +157,7 @@ function createBooks(cb) {
           '9788401352836',
           authors[0],
           [genres[0]],
-          callback,
+          callback
         );
       },
       function (callback) {
@@ -167,7 +167,7 @@ function createBooks(cb) {
           '9780756411336',
           authors[0],
           [genres[0]],
-          callback,
+          callback
         );
       },
       function (callback) {
@@ -177,7 +177,7 @@ function createBooks(cb) {
           '9780765379528',
           authors[1],
           [genres[1]],
-          callback,
+          callback
         );
       },
       function (callback) {
@@ -187,7 +187,7 @@ function createBooks(cb) {
           '9780765379504',
           authors[1],
           [genres[1]],
-          callback,
+          callback
         );
       },
       function (callback) {
@@ -197,7 +197,7 @@ function createBooks(cb) {
           'ISBN111111',
           authors[4],
           [genres[0], genres[1]],
-          callback,
+          callback
         );
       },
       function (callback) {
@@ -207,12 +207,12 @@ function createBooks(cb) {
           'ISBN222222',
           authors[4],
           false,
-          callback,
+          callback
         );
       },
     ],
     // optional callback
-    cb,
+    cb
   );
 }
 
@@ -225,7 +225,7 @@ function createBookInstances(cb) {
           'London Gollancz, 2014.',
           false,
           'Available',
-          callback,
+          callback
         );
       },
       function (callback) {
@@ -234,7 +234,7 @@ function createBookInstances(cb) {
           ' Gollancz, 2011.',
           false,
           'Loaned',
-          callback,
+          callback
         );
       },
       function (callback) {
@@ -243,7 +243,7 @@ function createBookInstances(cb) {
           ' Gollancz, 2015.',
           false,
           false,
-          callback,
+          callback
         );
       },
       function (callback) {
@@ -252,7 +252,7 @@ function createBookInstances(cb) {
           'New York Tom Doherty Associates, 2016.',
           false,
           'Available',
-          callback,
+          callback
         );
       },
       function (callback) {
@@ -261,7 +261,7 @@ function createBookInstances(cb) {
           'New York Tom Doherty Associates, 2016.',
           false,
           'Available',
-          callback,
+          callback
         );
       },
       function (callback) {
@@ -270,7 +270,7 @@ function createBookInstances(cb) {
           'New York Tom Doherty Associates, 2016.',
           false,
           'Available',
-          callback,
+          callback
         );
       },
       function (callback) {
@@ -279,7 +279,7 @@ function createBookInstances(cb) {
           'New York, NY Tom Doherty Associates, LLC, 2015.',
           false,
           'Available',
-          callback,
+          callback
         );
       },
       function (callback) {
@@ -288,7 +288,7 @@ function createBookInstances(cb) {
           'New York, NY Tom Doherty Associates, LLC, 2015.',
           false,
           'Maintenance',
-          callback,
+          callback
         );
       },
       function (callback) {
@@ -297,7 +297,7 @@ function createBookInstances(cb) {
           'New York, NY Tom Doherty Associates, LLC, 2015.',
           false,
           'Loaned',
-          callback,
+          callback
         );
       },
       function (callback) {
@@ -308,7 +308,7 @@ function createBookInstances(cb) {
       },
     ],
     // Optional callback
-    cb,
+    cb
   );
 }
 
@@ -323,5 +323,5 @@ async.series(
     }
     // All done, disconnect from database
     mongoose.connection.close();
-  },
+  }
 );
