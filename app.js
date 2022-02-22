@@ -16,7 +16,7 @@ const app = express();
 
 // Set up mongoose connection
 const mongoDB =
-  'mongodb+srv://omarsaleh92:UlEdKHrrJlDVsL9C@cluster0.a9azn.mongodb.net/local_library?retryWrites=true';
+  'mongodb+srv://cooluser:coolpassword@cluster0.a9azn.mongodb.net/local_library?retryWrites=true';
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;
