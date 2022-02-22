@@ -15,7 +15,7 @@ const catalogRouter = require('./routes/catalog'); // Import routes for "catalog
 const app = express();
 
 // Set up mongoose connection
-const mongoDB = process.env.MONGODB_URI || dev_db_url;
+const mongoDB = process.env.MongoDB_URI;
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;
